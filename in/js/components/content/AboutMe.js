@@ -18,7 +18,7 @@ class AboutMe extends React.Component {
           <Switchwrap show={this.props.show} text="Languages I speak: Java, JavaScript, PHP, HTML, CSS, English" />
         </div>
         <div className="subsection">
-          <Switchwrap show={this.props.show} text="Technologies I've crashed: jQuery, AngularJS, ReactJS, NodeJS, GulppJS, Xano, WordPress, Spring, LESS, MySQL" />
+          <Switchwrap show={this.props.show} text="Technologies I've crashed: jQuery, AngularJS, ReactJS, NodeJS, GulpJS, Xano, WordPress, Spring, LESS, MySQL" />
         </div>
         <div className="subsection">
           <Switchwrap show={this.props.show} text="More buzzwords: git, github, VIM, sublime text, Eclipse, Linux, OSX, Sequel Pro" />
