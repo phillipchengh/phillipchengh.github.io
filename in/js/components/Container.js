@@ -6,8 +6,6 @@ var ReactTransitionGroup = require('react-addons-transition-group');
 class Container extends React.Component {
 
   render() {
-    console.log('rendering container');
-    console.log(this.props.children);
     return (
       <div className="container">
         <div className="content">

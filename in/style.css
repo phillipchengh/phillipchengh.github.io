@@ -270,16 +270,9 @@ body {
 .arrow {
   vertical-align: middle;
 }
-.resume-wrapper {
-  margin: 2% 0% 2% 0%;
+.noscript-header {
+  color: #f1fa8c;
 }
-.resume-left {
-  display: inline-block;
-  text-align: center;
-  width: 20%;
-}
-.resume-right {
-  display: inline-block;
-  text-align: center;
-  width: 80%;
+.noscript-link {
+  color: #f1fa8c;
 }
