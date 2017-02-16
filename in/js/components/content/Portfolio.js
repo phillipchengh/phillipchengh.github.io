@@ -12,7 +12,7 @@ class Portfolio extends React.Component {
           <Switchwrap className="project-concept" show={this.props.show} text="Portfolio of a certain Phillip Chen" />
         </div>
         <div className="subsection">
-          <Switchbullet show={this.props.show} text="Wrote dozens of React components to simulate scrambling and rainbow text." />
+          <Switchbullet show={this.props.show} text="Wrote React components to simulate scrambling and rainbow text." />
           <Switchbullet show={this.props.show} text="Developed components to function like directories." />
           <Switchbullet show={this.props.show} text="Inspired by synaesthesia and the Matrix." />
         </div>

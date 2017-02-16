@@ -21,7 +21,6 @@ class NFLExam extends React.Component {
         <div className="subsection">
           <Switchtext show={this.props.show} text="Check out the code " />
           <Switchlink show={this.props.show} href="https://github.com/phillipchengh/nflexam" text="here" />
-          <Switchtext show={this.props.show} text="!" /> 
         </div>
       </span>
     );

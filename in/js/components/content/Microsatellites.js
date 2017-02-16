@@ -9,7 +9,7 @@ class Microsatellites extends React.Component {
     return (
       <span>
         <div className="subsection">
-          <Switchwrap className="project-concept" show={this.props.show} text="Map short tandem repeats of a genome!" />
+          <Switchwrap className="project-concept" show={this.props.show} text="Map short tandem repeats of a genome" />
         </div>
         <div className="subsection">
           <Switchbullet show={this.props.show} text="Simulated a genome reader and mapped areas with many repeated letters." />
@@ -21,7 +21,6 @@ class Microsatellites extends React.Component {
         <div className="subsection">
           <Switchtext show={this.props.show} text="Check out the code " />
           <Switchlink show={this.props.show} href="https://github.com/phillipchengh/Microsatellites" text="here" />
-          <Switchtext show={this.props.show} text="!" /> 
         </div>
       </span>
     );

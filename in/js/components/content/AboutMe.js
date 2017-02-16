@@ -9,19 +9,19 @@ class AboutMe extends React.Component {
     return (
       <span>
         <div className="subsection">
-          <Switchwrap className="aboutme-headline" show={this.props.show} text="Hi, my name is Phillip Chen!" />
+          <Switchwrap className="aboutme-headline" show={this.props.show} text="Hi, my name is Phillip Chen" />
         </div>
         <div className="subsection">
-          <Switchwrap show={this.props.show} text="Just a nerd who grew up with the internet and trying to grow it. UCLA '15" />
+          <Switchwrap show={this.props.show} text="I'm a nerd... my favorite color is purple. UCLA '15" />
         </div>
         <div className="subsection">
-          <Switchwrap show={this.props.show} text="Languages I speak: Java, JavaScript, PHP, HTML, CSS, English" />
+          <Switchwrap show={this.props.show} text="Languages I speak: Java, JavaScript, PHP, Perl, HTML, CSS, English" />
         </div>
         <div className="subsection">
           <Switchwrap show={this.props.show} text="Technologies I've crashed: jQuery, AngularJS, ReactJS, NodeJS, GulpJS, Xano, WordPress, Spring, LESS, MySQL" />
         </div>
         <div className="subsection">
-          <Switchwrap show={this.props.show} text="More buzzwords: git, github, VIM, sublime text, Eclipse, Linux, OSX, Sequel Pro" />
+          <Switchwrap show={this.props.show} text="More buzzwords: git, github, VIM, sublime text, Eclipse, Linux, OSX, Sequel Pro, tmux" />
         </div>
       </span>
     );

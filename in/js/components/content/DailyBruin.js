@@ -23,7 +23,6 @@ class DailyBruin extends React.Component {
         <div className="subsection">
           <Switchtext show={this.props.show} text="Check out the Daily Bruin " />
           <Switchlink show={this.props.show} href="http://dailybruin.com" text="here" />
-          <Switchtext show={this.props.show} text="!" /> 
         </div>
       </span>
     );

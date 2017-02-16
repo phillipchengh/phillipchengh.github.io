@@ -8,10 +8,11 @@ var Switchlink = require('./Switchlink');
 var Directory = require('./Directory');
 var Hyperlink = require('./Hyperlink');
 var JapaneseAnimationClub = require('./content/JapaneseAnimationClub');
+var Ziprecruiter = require('./content/Ziprecruiter');
 var Zabinet = require('./content/Zabinet');
 var Sony = require('./content/Sony');
 var DailyBruin = require('./content/DailyBruin');
-var PokerBot = require('./content/PokerBot');
+var Gfbot = require('./content/Gfbot');
 var Portfolio = require('./content/Portfolio');
 var NFLExam = require('./content/NFLExam');
 var Microsatellites = require('./content/Microsatellites');
@@ -28,6 +29,9 @@ class Index extends React.Component {
         </div>
         <div className="section">
           <Directory show name="experience">
+            <Directory name="ziprecruiter">
+              <Ziprecruiter />
+            </Directory>
             <Directory name="zabinet">
               <Zabinet />
             </Directory>
@@ -50,11 +54,11 @@ class Index extends React.Component {
             <Directory name="portfolio">
               <Portfolio />
             </Directory>
+            <Directory name="gfbot">
+              <Gfbot />
+            </Directory>
             <Directory name="nflexam">
               <NFLExam />
-            </Directory>
-            <Directory name="poker bot">
-              <PokerBot />
             </Directory>
             <Directory name="microsatellites">
               <Microsatellites />

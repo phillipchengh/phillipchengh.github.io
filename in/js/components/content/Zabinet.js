@@ -24,7 +24,6 @@ class Zabinet extends React.Component {
         <div className="subsection">
           <Switchtext show={this.props.show} text="Check out the company's website " />
           <Switchlink show={this.props.show} href="https://zabinet.com" text="here" />
-          <Switchtext show={this.props.show} text="!" /> 
         </div>
       </span>
     );

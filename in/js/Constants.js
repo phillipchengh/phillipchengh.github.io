@@ -10,7 +10,7 @@ module.exports = {
 
   LONG_TIME: 3000,
 
-  TITLES: ['developer', 'ucla \'15', 'computer science', 'keyboard typer', 'pokemon master', 'owns a cactus', 'starcraft player', 'chargers fan', 'taiwanese', 'ramen eater'],
+  TITLES: ['developer', 'ucla \'15', 'keyboard typer', '~steven universe~', 'topdecking lethal', 'harambe :(', ':thinking:', 'i don\'t even know', 'sushi eater'],
 
   ADJUST_FREQ: 0.008,
 

@@ -25,7 +25,6 @@ class Sony extends React.Component {
         <div className="subsection">
           <Switchtext show={this.props.show} text="Check out the company's website " />
           <Switchlink show={this.props.show} href="http://sony.com" text="here" />
-          <Switchtext show={this.props.show} text="!" /> 
         </div>
       </span>
     );

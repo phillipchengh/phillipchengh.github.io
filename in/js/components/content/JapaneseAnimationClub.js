@@ -9,7 +9,7 @@ class JapaneseAnimationClub extends React.Component {
     return (
       <span>
         <div className="subsection">
-          <Switchwrap className="project-concept" show={this.props.show} text="A club website for Anime nerds!" />
+          <Switchwrap className="project-concept" show={this.props.show} text="Club Webmaster" />
         </div>
         <div className="subsection">
           <Switchbullet show={this.props.show} text="Developed front end club website while learning AngularJS, Less, Gulp" />
@@ -22,7 +22,6 @@ class JapaneseAnimationClub extends React.Component {
         <div className="subsection">
           <Switchtext show={this.props.show} text="Check out the club website " />
           <Switchlink show={this.props.show} href="http://jacatucla.org" text="here" />
-          <Switchtext show={this.props.show} text="!" /> 
         </div>
       </span>
     );
