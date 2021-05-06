@@ -1,10 +1,13 @@
-@background_color: pink;
-@card_primary_color: white;
+@primary_color: white;
+@alternate_color: #ffe0e3;
+@about_color: @alternate_color;
+@work_color: #a7e0e5;
+@dnd_color: #bd93f9;
 @text_color: gray;
 
 @shadow: 0px 1px 2px 1px #DDDDDD;
 
-@card_translate_distance: 1.5rem;
+@translate_distance: 1.5rem;
 
 @initial_animation_duration: 1s;
 @loop_animation_duration: 1s;
@@ -43,5 +46,16 @@
 
   /* my own styles */
   cursor: pointer;
+  outline: 0;
   text-decoration: none;
+}
+
+.visually_hidden() {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

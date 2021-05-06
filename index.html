@@ -4,7 +4,7 @@
     <title>Phillip Chen</title>
     <link rel="stylesheet" href="dist/index.css" type="text/css" media="all">
   </head>
-  <body>
+  <body class="about_active">
     <main>
       <div class="main_container">
         <div class="card_stack initial">
@@ -14,29 +14,26 @@
           </div>
           <div class="content_card">
             <div class="content">
-              <section class="about">
-                <h1>Phillip Chen</h1>
-              </section>
-              <section class="work">
-                <h2>Software Engineer</h2>
-              </section>
-              <section class="dnd">
-                <h2>Dungeons & Dragons</h2>
-              </section>
-              <ol aria-hidden="true" class="menu" role="menu">
+              <ol class="menu" role="menu">
                 <li>
-                  <button id="test" role="menuitem" type="button">Test</button>
+                  <button class="about_button tab_button active" role="menuitem" type="button">About</button>
                 </li>
                 <li>
-                  <button role="menuitem" type="button">About</button>
+                  <button class="work_button tab_button" role="menuitem" type="button">Work</button>
                 </li>
                 <li>
-                  <button role="menuitem" type="button">Work</button>
-                </li>
-                <li>
-                  <button role="menuitem" type="button">D&D</button>
+                  <button class="dnd_button tab_button" role="menuitem" type="button">D&D</button>
                 </li>
               </ol>
+              <section class="about section active">
+                <h1>Phillip Chen</h1>
+              </section>
+              <section class="work section">
+                <h2>Software Engineer</h2>
+              </section>
+              <section class="dnd section">
+                <h2>Dungeons & Dragons</h2>
+              </section>
             </div>
           </div>
           <div class="back_card"></div>

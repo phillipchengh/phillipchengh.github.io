@@ -1,19 +1,17 @@
 @import "common.less";
 
-html {
-  background: @background_color;
-  box-sizing: border-box;
-  font-family: 'Courier New', Courier, monospace;
-}
-
 *, *::before, *::after {
   box-sizing: inherit;
 }
 
+body {
+  background: @alternate_color;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+  transition: background @loop_animation_duration;
+}
+
 .main_container {
-  // align-items: center;
-  // display: flex;
-  // justify-content: center;
   padding: 10rem 1rem;
 
   @media @phones {

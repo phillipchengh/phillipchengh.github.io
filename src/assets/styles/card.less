@@ -3,7 +3,7 @@
 // card mixin to match exact size of all other cards
 .card() {
   border-radius: 1rem;
-  min-height: 36rem;
+  height: 36rem;
   position: absolute;
   width: 20rem;
 
@@ -13,6 +13,7 @@
   }
 }
 
+// used to signal animation end for all card related animations
 @keyframes noop {
   0% {
     opacity: 1;
@@ -29,14 +30,14 @@
   }
   100% {
     opacity: 1;
-    transform: translateX(-@card_translate_distance) translateY(-@card_translate_distance);
+    transform: translateX(-@translate_distance) translateY(-@translate_distance);
   }
 }
 
 @keyframes front_card_loop {
   0% {
     opacity: 1;
-    transform: translateX(-@card_translate_distance) translateY(-@card_translate_distance);
+    transform: translateX(-@translate_distance) translateY(-@translate_distance);
   }
   50% {
     opacity: 0.5;
@@ -44,7 +45,7 @@
   }
   100% {
     opacity: 1;
-    transform: translateX(-@card_translate_distance) translateY(-@card_translate_distance);
+    transform: translateX(-@translate_distance) translateY(-@translate_distance);
   }
 }
 
@@ -55,19 +56,19 @@
   }
   100% {
     opacity: 0.5;
-    transform: translateX(@card_translate_distance) translateY(@card_translate_distance);
+    transform: translateX(@translate_distance) translateY(@translate_distance);
   }
 }
 
 @keyframes back_card_loop {
   0% {
-    transform: translateX(@card_translate_distance) translateY(@card_translate_distance);
+    transform: translateX(@translate_distance) translateY(@translate_distance);
   }
   50% {
     transform: translateX(0) translateY(0);
   }
   100% {
-    transform: translateX(@card_translate_distance) translateY(@card_translate_distance);
+    transform: translateX(@translate_distance) translateY(@translate_distance);
   }
 }
 
@@ -83,9 +84,9 @@
   .card();
 
   background: transparent;
-  border: 2px solid white;
+  border: 2px solid @primary_color;
   pointer-events: none;
-  transform: translateX(-@card_translate_distance) translateY(-@card_translate_distance);
+  transform: translateX(-@translate_distance) translateY(-@translate_distance);
   z-index: 2;
 }
 
@@ -99,27 +100,29 @@
   .secret_border_card {
     .card();
 
-    border: 2px solid @background_color;
-    transform: translateX(-@card_translate_distance) translateY(-@card_translate_distance);
+    border: 2px solid @alternate_color;
+    transform: translateX(-@translate_distance) translateY(-@translate_distance);
   }
 }
 
 .content_card {
   .card();
 
-  background: @card_primary_color;
+  background: @primary_color;
   border-radius: 1rem;
   box-shadow: @shadow;
   padding: 2rem;
+  // account for the top card translation spacing
+  padding-right: 2rem + @translate_distance;
   z-index: 1;
 }
 
 .back_card {
   .card();
 
-  background: @card_primary_color;
+  background: @primary_color;
   opacity: 0.5;
-  transform: translateX(@card_translate_distance) translateY(@card_translate_distance);
+  transform: translateX(@translate_distance) translateY(@translate_distance);
   z-index: 0;
 }
 

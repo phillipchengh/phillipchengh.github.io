@@ -3,15 +3,19 @@
 .content {
   transform: translateY(0);
 
-  h1 {
-    font-size: 2rem;
+  h1,h2 {
+    font-size: 1.5rem;
+  }
+
+  .section:not(.active) {
+    .visually_hidden();
   }
 }
 
 @keyframes content_load {
   0% {
     opacity: 0;
-    transform: translateY(@card_translate_distance);
+    transform: translateY(@translate_distance);
   }
   100% {
     opacity: 1;
@@ -30,14 +34,13 @@
   }
   50% {
     opacity: 0;
-    transform: translateY(@card_translate_distance);
+    transform: translateY(@translate_distance);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 
 .initial {
   .content {

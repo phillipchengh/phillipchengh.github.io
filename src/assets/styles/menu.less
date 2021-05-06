@@ -2,11 +2,13 @@
 
 .menu {
   display: flex;
+  justify-content: space-between;
 
   li {
     a, button {
       .reset_button();
 
+      &.active,
       &:focus,
       &:hover {
         background-color: pink;
