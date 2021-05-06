@@ -1,0 +1,22 @@
+@import "common.less";
+
+.card() {
+  border-radius: 1rem;
+  width: 20rem;
+  min-height: 36rem;
+
+  @media @phones {
+    width: 90%;
+    min-width: 16rem;
+  }
+}
+
+.content_card {
+  .card();
+
+  background: @cardPrimaryColor;
+  border-radius: 1rem;
+  box-shadow: @shadow;
+  margin: 0 auto;
+  padding: 2rem;
+}
