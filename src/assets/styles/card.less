@@ -1,9 +1,11 @@
 @import "common.less";
 
+// card mixin to match exact size of all other cards
 .card() {
   border-radius: 1rem;
-  width: 20rem;
   min-height: 36rem;
+  position: absolute;
+  width: 20rem;
 
   @media @phones {
     width: 90%;
@@ -11,12 +13,150 @@
   }
 }
 
+@keyframes noop {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes front_card_load {
+  0% {
+    opacity: 0;
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-@card_translate_distance) translateY(-@card_translate_distance);
+  }
+}
+
+@keyframes front_card_loop {
+  0% {
+    opacity: 1;
+    transform: translateX(-@card_translate_distance) translateY(-@card_translate_distance);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-@card_translate_distance) translateY(-@card_translate_distance);
+  }
+}
+
+@keyframes back_card_load {
+  0% {
+    opacity: 0;
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translateX(@card_translate_distance) translateY(@card_translate_distance);
+  }
+}
+
+@keyframes back_card_loop {
+  0% {
+    transform: translateX(@card_translate_distance) translateY(@card_translate_distance);
+  }
+  50% {
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    transform: translateX(@card_translate_distance) translateY(@card_translate_distance);
+  }
+}
+
+// card container for positioning all cards
+.card_stack {
+  .card();
+
+  margin: 0 auto;
+  position: relative;
+}
+
+.front_card {
+  .card();
+
+  background: transparent;
+  border: 2px solid white;
+  pointer-events: none;
+  transform: translateX(-@card_translate_distance) translateY(-@card_translate_distance);
+  z-index: 2;
+}
+
+.secret_card {
+  .card();
+
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3;
+
+  .secret_border_card {
+    .card();
+
+    border: 2px solid @background_color;
+    transform: translateX(-@card_translate_distance) translateY(-@card_translate_distance);
+  }
+}
+
 .content_card {
   .card();
 
-  background: @cardPrimaryColor;
+  background: @card_primary_color;
   border-radius: 1rem;
   box-shadow: @shadow;
-  margin: 0 auto;
   padding: 2rem;
+  z-index: 1;
+}
+
+.back_card {
+  .card();
+
+  background: @card_primary_color;
+  opacity: 0.5;
+  transform: translateX(@card_translate_distance) translateY(@card_translate_distance);
+  z-index: 0;
+}
+
+.initial {
+  .front_card {
+    animation: front_card_load @initial_animation_duration;
+    animation-fill-mode: forwards;
+  }
+
+  .secret_card {
+    .secret_border_card {
+      animation: front_card_load @initial_animation_duration;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .back_card {
+    animation: back_card_load @initial_animation_duration;
+    animation-fill-mode: forwards;
+  }
+}
+
+.loop {
+  .front_card {
+    animation: front_card_loop @loop_animation_duration;
+    animation-fill-mode: forwards;
+  }
+
+  .secret_card {
+    .secret_border_card {
+      animation: front_card_loop @loop_animation_duration;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .back_card {
+    animation: back_card_loop @loop_animation_duration;
+    animation-fill-mode: forwards;
+  }
 }

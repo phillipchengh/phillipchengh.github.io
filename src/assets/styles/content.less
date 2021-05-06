@@ -1,5 +1,52 @@
+@import "common.less";
+
 .content {
+  transform: translateY(0);
+
   h1 {
     font-size: 2rem;
+  }
+}
+
+@keyframes content_load {
+  0% {
+    opacity: 0;
+    transform: translateY(@card_translate_distance);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes content_loop {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  25% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(@card_translate_distance);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.initial {
+  .content {
+    animation: content_load @initial_animation_duration;
+  }
+}
+
+.loop {
+  .content {
+    animation: content_loop @loop_animation_duration;
   }
 }
