@@ -7,9 +7,8 @@
   position: absolute;
   width: 20rem;
 
-  @media @phones {
-    width: 90%;
-    min-width: 16rem;
+  @media @small_width {
+    width: 16rem;
   }
 }
 
@@ -102,6 +101,7 @@
 
     border: 2px solid @alternate_color;
     transform: translateX(-@translate_distance) translateY(-@translate_distance);
+    transition: border @loop_animation_duration;
   }
 }
 
@@ -161,5 +161,29 @@
   .back_card {
     animation: back_card_loop @loop_animation_duration;
     animation-fill-mode: forwards;
+  }
+}
+
+body.about_active {
+  .secret_card {
+    .secret_border_card {
+      border: 2px solid @about_color;
+    }
+  }
+}
+
+body.work_active {
+  .secret_card {
+    .secret_border_card {
+      border: 2px solid @work_color;
+    }
+  }
+}
+
+body.dnd_active {
+  .secret_card {
+    .secret_border_card {
+      border: 2px solid @dnd_color;
+    }
   }
 }

@@ -1,9 +1,21 @@
 @primary_color: white;
-@alternate_color: #ffe0e3;
+@text_color: #494e51;
+
+@alternate_color: #ffdada;
+@dark_alternate_color: darken(@alternate_color, 20%);
+@very_dark_alternate_color: darken(@alternate_color, 40%);
+
 @about_color: @alternate_color;
-@work_color: #a7e0e5;
-@dnd_color: #bd93f9;
-@text_color: gray;
+@dark_about_color: darken(@about_color, 20%);
+@very_dark_about_color: darken(@about_color, 40%);
+
+@work_color: #da9ff9;
+@dark_work_color: darken(@work_color, 20%);
+@very_dark_work_color: darken(@work_color, 40%);
+
+@dnd_color: #98acf8;
+@dark_dnd_color: darken(@dnd_color, 20%);
+@very_dark_dnd_color: darken(@dnd_color, 40%);
 
 @shadow: 0px 1px 2px 1px #DDDDDD;
 
@@ -12,7 +24,7 @@
 @initial_animation_duration: 1s;
 @loop_animation_duration: 1s;
 
-@phones: ~"all and (max-width: 360px)";
+@small_width: ~"all and (max-width: 479px)";
 
 // https://gist.github.com/MoOx/9137295
 .reset_button() {

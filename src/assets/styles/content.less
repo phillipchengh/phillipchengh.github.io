@@ -4,11 +4,138 @@
   transform: translateY(0);
 
   h1,h2 {
-    font-size: 1.5rem;
+    color: @dark_alternate_color;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  hr {
+    border-top: 2px solid @dark_alternate_color;
+  }
+
+  .blurb {
+    color: @text_color;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .question {
+    color: @dark_alternate_color;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  a {
+    .reset_button();
+
+    color: @dark_alternate_color;
+
+    &.active,
+    &:focus,
+    &:hover {
+      color: @very_dark_alternate_color;
+    }
+  }
+
+  .img_container {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .section {
+    .info {
+      margin-bottom: 2rem;
+    }
   }
 
   .section:not(.active) {
     .visually_hidden();
+  }
+}
+
+@media @small_width {
+  .content {
+    font-size: 0.8rem;
+
+    h1, h2 {
+      font-size: 1rem;
+    }
+  }
+}
+
+.about.section {
+  h1,h2 {
+    color: @dark_about_color;
+  }
+
+  hr {
+    border-top: 2px solid @dark_about_color;
+  }
+
+  .portrait {
+    border-radius: 0.5rem;
+    border: 2px solid @dark_about_color;
+    height: 6rem;
+    width: 6rem;
+  }
+}
+
+.work.section {
+  h2 {
+    color: @dark_work_color;
+  }
+
+  hr {
+    border-top: 2px solid @dark_work_color;
+  }
+
+  a {
+    color: @dark_work_color;
+
+    &.active,
+    &:focus,
+    &:hover {
+      color: @very_dark_work_color;
+    }
+  }
+
+  .question {
+    color: @dark_work_color;
+  }
+
+  .ziprecruiter {
+    border-radius: 0.5rem;
+    width: 90%;
+  }
+}
+
+.dnd.section {
+  h2 {
+    color: @dark_dnd_color;
+  }
+
+  hr {
+    border-top: 2px solid @dark_dnd_color;
+  }
+
+  .dnd_logo {
+    height: 6rem;
+  }
+
+  a {
+    color: @dark_dnd_color;
+
+    &.active,
+    &:focus,
+    &:hover {
+      color: @very_dark_dnd_color;
+    }
+  }
+
+  .question {
+    color: @dark_dnd_color;
   }
 }
 

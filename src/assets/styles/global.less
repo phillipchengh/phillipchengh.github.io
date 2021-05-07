@@ -7,14 +7,26 @@
 body {
   background: @alternate_color;
   box-sizing: border-box;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Helvetica', 'Arial', sans-serif;
   transition: background @loop_animation_duration;
 }
 
-.main_container {
-  padding: 10rem 1rem;
+body.about_active {
+  background: @about_color;
+}
 
-  @media @phones {
-    padding: 5rem 1rem;
+body.work_active {
+  background: @work_color;
+}
+
+body.dnd_active {
+  background: @dnd_color;
+}
+
+.main_container {
+  padding: 5rem 1rem;
+
+  @media @small_width {
+    padding: 2rem 1rem;
   }
 }
