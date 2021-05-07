@@ -35,11 +35,9 @@ module.exports = (env = { production: false }) => {
       port: 8080,
       allowedHosts: [
         'localhost',
-        'frontend',
       ],
       hot: !env.production,
       publicPath: `/${distPath}`,
-      // writeToDisk: true,
     },
     // webpack does builtin optimizations accordingly
     mode: env.production ? 'production' : 'development',
@@ -123,29 +121,8 @@ module.exports = (env = { production: false }) => {
     optimization: {
       minimize: env.production,
       minimizer: [new TerserPlugin()],
-      // splitChunks: {
-      //   chunks: 'all',
-      //   minChunks: Infinity,
-      //   cacheGroups: {
-      //     vendors: {
-      //       test: /[\\/]node_modules[\\/]/,
-      //       name: 'vendors',
-      //       chunks: 'all',
-      //       priority: 10,
-      //       enforce: true,
-      //     },
-      //     default: {
-      //       chunks: 'all',
-      //       minChunks: Infinity,
-      //     },
-      //   },
-      // },
     },
     resolve: {
-      // alias: {
-      //   '@assets': `${__dirname}/src/frontend/assets`,
-      //   'react-dom': '@hot-loader/react-dom',
-      // },
       extensions: ['.js'],
     },
     plugins,
