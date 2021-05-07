@@ -1,7 +1,40 @@
 /**
+ * https://jonsuh.com/blog/detect-the-end-of-css-animations-and-transitions-with-javascript/
+ * see which animation end event we should listen to
+ * if it's unsupported or they don't want animations, then don't run animations
+ * @returns {string} supported animation end event, or null if we should not animate
+ */
+const getSupportedAnimationEndEvent = () => {
+  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!mediaQuery || mediaQuery.matches) {
+    // this means they prefer no motion animations
+    return null;
+  }
+
+  const element = document.createElement('fakeelement');
+
+  const animationVendorMap = {
+    // style name: event name
+    animation: 'animationend',
+    OAnimation: 'oAnimationEnd',
+    MozAnimation: 'animationend',
+    WebkitAnimation: 'webkitAnimationEnd',
+  };
+
+  // test the browser
+  const supportedAnimation = Object.entries(animationVendorMap).find(([styleName]) => (
+    element.style[styleName] !== undefined
+  ));
+
+  return supportedAnimation && supportedAnimation[1] ? supportedAnimation[1] : null;
+};
+
+const animationEndEvent = getSupportedAnimationEndEvent();
+
+/**
  * .card_stack is the umbrella element that sets animation state with .initial or .loop classes
  *
- * @returns .card_stack element
+ * @returns {element} .card_stack element
  */
 const getCardStack = () => (
   document.querySelector('.card_stack')
@@ -13,16 +46,21 @@ const getCardStack = () => (
 const startCardLoopAnimation = () => {
   // remove specific initial styles used for page load, we're looping now
   getCardStack().classList.remove('initial');
-  // adding this loop class will start loop animations
-  getCardStack().classList.add('loop');
+  // animate if we can
+  if (animationEndEvent) {
+    // adding this loop class will start loop animations
+    getCardStack().classList.add('loop');
+  }
 };
 
 /**
  * When done with loop animations, remove the loop class so loop animations can be re-run
  */
-getCardStack().addEventListener('animationend', () => {
-  getCardStack().classList.remove('loop');
-});
+if (animationEndEvent) {
+  getCardStack().addEventListener(animationEndEvent, () => {
+    getCardStack().classList.remove('loop');
+  });
+}
 
 /**
  * These tab button and section values should match the html values
@@ -66,7 +104,7 @@ buttonMaps.forEach(({
 }) => {
   const buttonElement = document.querySelector(buttonSelector);
   buttonElement.addEventListener('click', () => {
-    if (buttonElement.classList.contains('active')) {
+    if (buttonElement.classList.contains('active') || getCardStack().classList.contains('loop')) {
       return;
     }
     // disable tab buttons during animation
@@ -78,15 +116,12 @@ buttonMaps.forEach(({
     const bodyElement = document.querySelector('body');
     bodyElement.classList.remove(...bodyElement.classList);
     bodyElement.classList.add(bodyClass);
-    // start animations
+    // start animations, function will handle if we shouldn't animate
     startCardLoopAnimation();
     // in the middle of the animation @loop_animation_duration, toggle visibility of the sections
+    // skip delaying if we're not animating
+    const delay = animationEndEvent ? 500 : 0;
     setTimeout(() => {
-      // re-enable tab buttons
-      document.querySelectorAll('.tab_button').forEach((element) => {
-        // eslint-disable-next-line no-param-reassign
-        element.disabled = false;
-      });
       // remove all active classes attached to tab buttons and section
       document.querySelectorAll('.tab_button, .section').forEach((element) => {
         element.classList.remove('active');
@@ -94,6 +129,11 @@ buttonMaps.forEach(({
       // add active classes to the selected tab button and section
       document.querySelector(buttonSectionSelector).classList.add('active');
       document.querySelector(buttonSelector).classList.add('active');
-    }, 500);
+      // re-enable tab buttons
+      document.querySelectorAll('.tab_button').forEach((element) => {
+        // eslint-disable-next-line no-param-reassign
+        element.disabled = false;
+      });
+    }, delay);
   });
 });
