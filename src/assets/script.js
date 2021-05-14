@@ -48,7 +48,8 @@ const startCardLoopAnimation = () => {
   getCardStack().classList.remove('initial');
   // animate if we can
   if (animationEndEvent) {
-    // adding this loop class will start loop animations
+    // changing these classes will start loop animations
+    getCardStack().classList.remove('fade_in_loop');
     getCardStack().classList.add('loop');
   }
 };
@@ -58,7 +59,9 @@ const startCardLoopAnimation = () => {
  */
 if (animationEndEvent) {
   getCardStack().addEventListener(animationEndEvent, () => {
-    getCardStack().classList.remove('loop');
+    if (getCardStack().classList.contains('loop')) {
+      getCardStack().classList.remove('loop');
+    }
   });
 }
 
@@ -134,6 +137,7 @@ buttonMaps.forEach(({
         // eslint-disable-next-line no-param-reassign
         element.disabled = false;
       });
+      getCardStack().classList.add('fade_in_loop');
     }, delay);
   });
 });
